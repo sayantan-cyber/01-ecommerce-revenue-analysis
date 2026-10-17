@@ -72,7 +72,7 @@ JOIN activity a ON a.customer_unique_id = f.customer_unique_id
 GROUP BY 1, 3
 ORDER BY 1, 3;
 
--- Q5. RFM segmentation (recency, frequency, monetary quintiles)
+-- Q5. RFM segmentation (recency, frequency, monetary quartiles)
 WITH rfm_base AS (
     SELECT c.customer_unique_id,
            DATEDIFF((SELECT MAX(order_purchase_timestamp) FROM orders) + INTERVAL 1 DAY,
